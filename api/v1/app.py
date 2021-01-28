@@ -12,6 +12,7 @@ app.url_map.strict_slashes = False
 
 @app.teardown_appcontext
 def end_session():
+    """ close connection """
     storage.close()
 
 if __name__ == '__main__':
