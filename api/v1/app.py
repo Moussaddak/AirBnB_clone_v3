@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ API Module """
 from flask import Flask
-from models import storage
 from api.v1.views import app_views
 from os import getenv
 
@@ -13,6 +12,7 @@ app.url_map.strict_slashes = False
 @app.teardown_appcontext
 def end_session():
     """ close connection """
+    from models import storage
     storage.close()
 
 if __name__ == '__main__':
